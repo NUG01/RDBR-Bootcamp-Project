@@ -8,11 +8,6 @@ const nameValid = document.querySelector(".name");
 const emailValid = document.querySelector(".email");
 const numValid = document.querySelector(".mobile");
 const dateValid = document.querySelector(".date");
-const err1 = document.querySelector(".eror1");
-const err2 = document.querySelector(".eror2");
-const err3 = document.querySelector(".eror3");
-const err4 = document.querySelector(".eror4");
-const submit = document.querySelector(".start");
 const num1 = document.querySelector(".num1");
 const num1div = document.querySelector(".num1div");
 const greenticks = document.querySelector(".greenticks");
@@ -25,19 +20,33 @@ const lab1 = document.querySelector(".lab1");
 const lab2 = document.querySelector(".lab2");
 const lab3 = document.querySelector(".lab3");
 const lab4 = document.querySelector(".lab4");
+const err1 = document.querySelector(".eror1");
+const err2 = document.querySelector(".eror2");
+const err3 = document.querySelector(".eror3");
+const err4 = document.querySelector(".eror4");
+let i = 0;
+let s = 0;
 
+/************* REGULAR EXPRESSIONS FOR INPUTS VALIDATION FUNCTION******************/
 let validName = /^.{3,}$/;
 let validEmail =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 let validNum = /^[0-9]+$/;
 let date =
   /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$/g;
+
+/***********FOR ERROR MESSAGE CLOSE BUTTON ****************/
 close.forEach((x) => {
   x.addEventListener("click", function () {
     x.parentElement.parentElement.classList.add("hidden");
   });
 });
-let s;
+
+/***************WHEN PAGE LOADS, THIS CHECKS IF IT HAS ANYTHING STORED IN SESSION STORAGE,
+ * IF TRUE, INPUT FIELDS GET FILLED WITH THE INFORMATION, WHICH GIVES RESISTANCE AGAINST PAGE REFRESH,
+ * COUNTER IS FOR TOP NUMBER 1 TO GET REPLACED WITH GREEN CHECK ICON WHEN ALL THE INPUTS ARE FILLED, SO EVEN CHECK
+ * ICON IS RESISTANT TO REFRESH
+ */
 window.onload = function () {
   s = 0;
   if (sessionStorage.getItem("name")) {
@@ -68,43 +77,32 @@ window.onload = function () {
     greenticks.classList.add("hidden");
   }
 };
-
-nameValid.addEventListener("keyup", function () {
-  sessionStorage.setItem("name", nameValid.value);
-  lab1.textContent = "";
-});
-emailValid.addEventListener("keyup", function () {
-  sessionStorage.setItem("email", emailValid.value);
-  lab2.textContent = "";
-});
-numValid.addEventListener("keyup", function () {
-  sessionStorage.setItem("phone", numValid.value);
-  lab3.textContent = "";
-});
-dateValid.addEventListener("keyup", function () {
-  sessionStorage.setItem("date_of_birth", dateValid.value);
-  lab4.textContent = "";
+/*******************AFTER FOCUS CHANGE EVENT ON INPUT FIELD, NEW VALUE IS SAVED ON THE SESSION STORAGE***************/
+inputi.forEach((e) => {
+  function keyName() {
+    if (e == nameValid) {
+      return "name";
+    } else if (e == emailValid) {
+      return "email";
+    } else if (e == numValid) {
+      return "phone";
+    } else if (e == dateValid) {
+      return "date_of_birth";
+    }
+  }
+  e.addEventListener("keyup", function () {
+    num1div.classList.add("greenN");
+    sessionStorage.setItem(keyName(), e.value);
+  });
 });
 
 inputi.forEach((el) => {
   el.addEventListener("keydown", () => {
     el.previousElementSibling.innerHTML = "";
-    num1.classList.add("greenN");
   });
 });
 
-let i = 0;
-form.addEventListener("submit", (e) => {
-  i = 0;
-  validation();
-  if (i == 4) {
-    form.submit();
-    return true;
-  } else {
-    e.preventDefault();
-  }
-});
-
+/***********VALIDATION FUNCTION, WHICH DISPLAYS ERROR MESSAGES**************/
 function validation() {
   if (nameValid.value.trim().match(validName)) {
     err1.classList.add("hidden");
@@ -142,27 +140,8 @@ function validation() {
     inpdiv4.classList.add("inpdiv");
   }
 }
-let result;
-let j;
-function validi() {
-  j = 0;
-  const inputebi = form.querySelectorAll(".forjs");
-  inputebi.forEach((each) => {
-    if (each.classList.contains("inpdiv")) {
-      if (j >= 0) {
-        j++;
-        console.log(`false ${j}`);
-        return false;
-      }
-    } else {
-      j++;
-      if (j === 4) {
-        console.log(`true ${j}`);
-        return true;
-      }
-    }
-  });
-}
+
+/********************TO DISPLAY AND HIDE ERRORS AND CORRECT ANSWER CHECKS FOR EACH INPUT*/
 const cor1 = document.querySelector(".correct1");
 const cor2 = document.querySelector(".correct2");
 const cor3 = document.querySelector(".correct3");
@@ -216,6 +195,7 @@ inputi.forEach((el) => {
   });
 });
 
+/*******************ADDS AND REMOVES INPUTS BACKGROUND COLOR AND FONT COLOR ON FOCUS CHANGE BASED ON INPUT VALIDITY****/
 inputi.forEach((el) => {
   el.addEventListener("change", (e) => {
     if (nameValid.value.trim().match(validName)) {
@@ -242,4 +222,15 @@ inputi.forEach((el) => {
       inpdiv4.classList.add("inpdiv");
     }
   });
+});
+/********FORM IS SUBMITTED IF VALIDATION IS SUCCESSFUL, IF NOT, SUBMIT DEFAULT BEHAVIOUR IS PREVENTED*********/
+form.addEventListener("submit", (e) => {
+  i = 0;
+  validation();
+  if (i == 4) {
+    form.submit();
+    return true;
+  } else {
+    e.preventDefault();
+  }
 });

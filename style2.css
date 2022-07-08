@@ -358,7 +358,7 @@ body {
   cursor: pointer;
 }
 /************FOR NUMBERS PATH DISPLAYED AT THE TOP***************/
-.num1.greenN {
+.num1div.greenN {
   background-color: #e9faf1;
 }
 .inpdiv .red {
@@ -377,7 +377,6 @@ body {
 
 .num1div {
   border-radius: 8px;
-  background-color: #e9faf1;
   border: 1px solid #e5e6e8;
   width: 4rem;
   height: 4rem;

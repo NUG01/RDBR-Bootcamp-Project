@@ -47,40 +47,14 @@ const act1 = document.querySelector(".act1");
 const act2 = document.querySelector(".act2");
 let n = 0;
 let n2 = 0;
-
+let r = 0;
+let v = 0;
 const request = new XMLHttpRequest();
 request.open("GET", "https://chess-tournament-api.devtest.ge/api/grandmasters");
 request.send();
 request.addEventListener("load", function () {
   const length = JSON.parse(this.response).length;
   const [id1, id2, id3, id4] = JSON.parse(this.responseText);
-  // const html = `<div class="forArr forArr2"><p class="opt2 optionP">Choose your character <span>*</span></p><svg class="arrow arrow2" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-  //  <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3531 0.645993C13.3997 0.692439 13.4366 0.747614 13.4618 0.80836C13.487 0.869105 13.5 0.934226 13.5 0.999993C13.5 1.06576 13.487 1.13088 13.4618 1.19163C13.4366 1.25237 13.3997 1.30755 13.3531 1.35399L7.35311 7.35399C7.30666 7.40056 7.25148 7.4375 7.19074 7.46271C7.12999 7.48791 7.06487 7.50089 6.99911 7.50089C6.93334 7.50089 6.86822 7.48791 6.80747 7.46271C6.74673 7.4375 6.69155 7.40056 6.64511 7.35399L0.645106 1.35399C0.55122 1.26011 0.498475 1.13277 0.498475 0.999993C0.498475 0.867218 0.55122 0.73988 0.645106 0.645993C0.738993 0.552107 0.866331 0.499362 0.999106 0.499362C1.13188 0.499362 1.25922 0.552107 1.35311 0.645993L6.99911 6.29299L12.6451 0.645993C12.6916 0.59943 12.7467 0.562487 12.8075 0.537281C12.8682 0.512074 12.9333 0.4991 12.9991 0.4991C13.0649 0.4991 13.13 0.512074 13.1907 0.537281C13.2515 0.562487 13.3067 0.59943 13.3531 0.645993Z" fill="#212529"/>
-  //  </svg></div>
-  //  <div class="options2">
-  //  <p class="length">(Total ${length})</p>
-  //    <div class="optionApi op">
-  //     <input type="radio" class="radioSelect" id="radioSelect" name="select">
-  //     <label for="radioSelect" class="api">${id1.name}</label>
-  //     <img class="apimg" src="${id1.image}"/>
-  //    </div>
-  //    <div class="optionApi op">
-  //     <input type="radio" class="radioSelect" id="radioSelect2" name="select">
-  //     <label for="radioSelect2" class="api">${id2.name}</label><img class="apimg" src="${id2.image}"/>
-  //    </div>
-  //    <div class="optionApi op">
-  //     <input type="radio" class="radioSelect" id="radioSelect3" name="select">
-  //     <label for="radioSelect3" class="api">${id3.name}</label><img class="apimg" src="${id3.image}"/>
-  //    </div>
-  //    <div class="optionApi op">
-  //     <input type="radio" class="radioSelect" id="radioSelect4" name="select">
-  //     <label for="radioSelect4" class="api">${id4.name}</label><img class="apimg" src="${id4.image}"/>
-  //    </div>
-  //    <div class="optionApi op">
-  //     <input type="radio" class="radioSelect" id="radioSelect4" name="select">
-  //     <label for="radioSelect4" class="api">other</label><img class="apimg" src="/images/default.png"/>
-  //    </div>
-  //  </div>`;
   const optCont = document.querySelector(".forArr2");
   const total = document.querySelector(".total");
   const opiate1 = document.querySelector(".op1");
@@ -88,7 +62,7 @@ request.addEventListener("load", function () {
   const opiate3 = document.querySelector(".op3");
   const opiate4 = document.querySelector(".op4");
   const opiate5 = document.querySelector(".op5");
-
+  /************************ USING API TO SEND HTML TO INDEX3.HTML AND DISPLAY PROPER DATA***************/
   const htmlarr = `<p class="opt2 optionP">Choose your character <span>*</span></p><svg class="arrow arrow2" width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.3531 0.645993C13.3997 0.692439 13.4366 0.747614 13.4618 0.80836C13.487 0.869105 13.5 0.934226 13.5 0.999993C13.5 1.06576 13.487 1.13088 13.4618 1.19163C13.4366 1.25237 13.3997 1.30755 13.3531 1.35399L7.35311 7.35399C7.30666 7.40056 7.25148 7.4375 7.19074 7.46271C7.12999 7.48791 7.06487 7.50089 6.99911 7.50089C6.93334 7.50089 6.86822 7.48791 6.80747 7.46271C6.74673 7.4375 6.69155 7.40056 6.64511 7.35399L0.645106 1.35399C0.55122 1.26011 0.498475 1.13277 0.498475 0.999993C0.498475 0.867218 0.55122 0.73988 0.645106 0.645993C0.738993 0.552107 0.866331 0.499362 0.999106 0.499362C1.13188 0.499362 1.25922 0.552107 1.35311 0.645993L6.99911 6.29299L12.6451 0.645993C12.6916 0.59943 12.7467 0.562487 12.8075 0.537281C12.8682 0.512074 12.9333 0.4991 12.9991 0.4991C13.0649 0.4991 13.13 0.512074 13.1907 0.537281C13.2515 0.562487 13.3067 0.59943 13.3531 0.645993Z" fill="#212529"/>
    </svg>`;
@@ -132,6 +106,8 @@ request.addEventListener("load", function () {
       }
     });
   });
+
+  /***GETTING LEVEL OF KNOWLEDGE AND CHARACTER VALUES IN SESSION STORAGE****/
   optionOne.forEach((e) => {
     e.addEventListener("click", function () {
       sessionStorage.setItem("experience_level", e.innerText);
@@ -142,20 +118,25 @@ request.addEventListener("load", function () {
       sessionStorage.setItem("character_id", id(e));
     });
   });
+  /********IF SELECTED INPUTS OBJECT IS FIRST IN THE DECONSTRUCTED ARRAY ABOVE, THEN IT RETURNS
+   * THIS NAMES ID
+   */
   function id(e) {
-    if (e.innerText.includes("Nona")) {
-      return "1";
-    } else if (e.innerText.includes("Bobby")) {
-      return "3";
-    } else if (e.innerText.includes("Tal")) {
-      return "2";
-    } else if (e.innerText.includes("Magnus")) {
-      return "4";
+    if (e.innerText == `${id1.name}`) {
+      return id1.id;
+    } else if (e.innerText == `${id2.name}`) {
+      return id2.id;
+    } else if (e.innerText.includes(`${id3.name}`)) {
+      return id3.id;
+    } else if (e.innerText == `${id4.name}`) {
+      return id4.id;
     } else if (e.innerText.includes("other")) {
       return "5";
     }
   }
 });
+
+/********GETTING DATA FROM SESSION STORAGE TO FILL INPUTS WITH FILLED VALUES AND NOT DELETING AFTER REFRESH********/
 window.onload = function () {
   const request2 = new XMLHttpRequest();
   request2.open(
@@ -164,7 +145,7 @@ window.onload = function () {
   );
   request2.send();
   request2.addEventListener("load", function () {
-    const [idi1, idi2, idi3, idi4] = JSON.parse(this.responseText);
+    let [idi1, idi2, idi3, idi4] = JSON.parse(this.responseText);
     if (sessionStorage.getItem("experience_level")) {
       n++;
       num2.classList.add("num2back");
@@ -175,36 +156,30 @@ window.onload = function () {
       num2.classList.add("num2back");
       forArr2.firstChild.innerHTML = char();
     }
-
+    /*********THIS FUNCTIONS LOADS COMPATIBLE IMAGE WITH ID AND SEND STRING TO HTML***********/
     function char() {
       if (sessionStorage.getItem("character_id") == idi1.id) {
-        let str = `<p>${idi1.name}</p><img class="apimg2" src="${idi3.image}"/>`;
+        let str = `<p>${idi1.name}</p><img class="apimg2" src="${idi1.image}"/>`;
         return str;
-        // return idi1.name;
       }
       if (sessionStorage.getItem("character_id") == idi2.id) {
-        //  return idi2.name;
         let str2 = `<p>${idi2.name}</p><img class="apimg2" src="${idi2.image}"/>`;
         return str2;
       }
       if (sessionStorage.getItem("character_id") == idi3.id) {
-        // return idi3.name;
-        let [namesur3, surname] = idi3.name.toLowerCase().split(" ");
-        let str3 = `<p>${idi3.name}</p><img class="apimg2" src="${idi3.img}"/>`;
+        let str3 = `<p>${idi3.name}</p><img class="apimg2" src="${idi3.image}"/>`;
         return str3;
       }
       if (sessionStorage.getItem("character_id") == idi4.id) {
-        // return idi4.name;
-        let [namesur4, surname] = idi4.name.toLowerCase().split(" ");
-        let str4 = `<p>${idi4.name}</p><img class="apimg2" src="${idi4.img}"/>`;
+        let str4 = `<p>${idi4.name}</p><img class="apimg2" src="${idi4.image}"/>`;
         return str4;
       }
       if (sessionStorage.getItem("character_id") == 5) {
-        // return "other";
         let str5 = `<p>other</p><img class="apimg2" src="images/default.png"/>`;
         return str5;
       }
     }
+    /*********RADIO BUTTONS FUNCTIONALITY**********/
     let yesNo = sessionStorage.getItem("already_participated");
     if (yesNo == true) {
       act1.classList.add("activated");
@@ -213,6 +188,7 @@ window.onload = function () {
     }
   });
 };
+/***************CHOOSING FROM OPTIONS AND SETTING IT AS INPUT INNER_HTML***********8*/
 allOpts.forEach((optn) => {
   optn.addEventListener("click", () => {
     num2.classList.add("num2back");
@@ -235,6 +211,7 @@ allOpts.forEach((optn) => {
       </svg>`;
       n2++;
     }
+    /***********WHATEVER OPTION IS CLICKED, ITS IMG IS SET IN INPUT WHEN IT IS CHOSEN RIGHT AFTER CHOSEN NAME*************/
     if (optn.parentElement.classList.contains("options2")) {
       forArr2.innerHTML = `<p class="opt2 optionP">${
         optn.textContent
@@ -248,7 +225,8 @@ allOpts.forEach((optn) => {
       n++;
     }
   });
-
+  /***********GETTING VALUE ROM RADIO BUTTONS, SINCE THEIR VALUE IS TRUE AND FALSE,
+   * DOLLAR EXPRESSION IS USED TO TRASLATE STRING INTO BOOLEAN, AND ALSO MANIPULATING ITS STYLING*************/
   radiol.forEach((r) => {
     r.addEventListener("click", (e) => {
       if (r.parentElement.classList.contains("radio2")) {
@@ -266,12 +244,9 @@ allOpts.forEach((optn) => {
       }
     });
   });
-  // optn.addEventListener("click", () => {
-  //   optn.parentElement.previousElementSibling.classList.remove("bordered");
-  // });
 });
-let r = 0;
-let v = 0;
+/**********VALIDATION FUNCTION THAT USES INCREMENTS WHICH WAS USED WHEN INPUT VALUES WHERE CLICKED,
+ * IF N OR N2 ISNT 0, THAT MEANS VALUE WAS CHOSEN AND THERE IS NO REASON TO NOT VALIDATE, IF NOT, ADDING RED BACKGROUND************/
 function validation() {
   if (!n2 > 0) {
     forArr.classList.add("bordered");
@@ -281,6 +256,7 @@ function validation() {
     forArr2.classList.add("bordered");
     v++;
   }
+  /****SEARCHES IF RADIO BUTTON AS ACTIVATED WITH SESSION STORAGE DATA*****/
   if (!sessionStorage.getItem("already_participated")) {
     radioP.classList.add("redio");
     v++;
@@ -290,35 +266,26 @@ function validation() {
       ev.parentElement.previousElementSibling.classList.remove("bordered");
     });
   });
+
   radiol.forEach((rad) => {
     rad.addEventListener("click", () => {
       radioP.classList.remove("redio");
       r++;
     });
-    rad.addEventListener("change", () => {
-      radioP.classList.remove("redio");
-      r++;
-    });
   });
+  /**********IF THESE INPUTS DONT CONTAIN ANY VALIDATION ERROR CLASS, SUBMIT IS POSIBLE AND DATA IS SENT TO THE SERVER*******/
   if (
     !forArr.classList.contains("bordered") &&
     !forArr2.classList.contains("bordered") &&
     !radioP.classList.contains("redio")
   ) {
     form.submit();
-    xlmReq();
+    xmlReq();
     return true;
   }
 }
-form.addEventListener("submit", (e) => {
-  if (validation()) {
-    validation();
-  } else {
-    e.preventDefault();
-  }
-});
-
-function xlmReq() {
+/*******SENDING COLLECTED DATA WITH XMLH, (HAD SYNTAX ERROR WITH FETCH FOR SOME REASON)***********/
+function xmlReq() {
   let storage = {};
   Object.keys(sessionStorage).forEach((key) => {
     storage[key] = sessionStorage.getItem(key);
@@ -328,128 +295,25 @@ function xlmReq() {
   );
   let data = JSON.stringify(storage);
 
-  let xlm = new XMLHttpRequest();
+  let xml = new XMLHttpRequest();
   let url = "https://chess-tournament-api.devtest.ge/api/register";
-  xlm.open("POST", url, true);
+  xml.open("POST", url, true);
 
-  //Send the proper header information along with the request
-  xlm.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-  xlm.onreadystatechange = function () {
-    if (xlm.readyState == 4 && xlm.status == 200) {
+  xml.onreadystatechange = function () {
+    if (xml.readyState == 4 && xml.status == 200) {
       alert(http.responseText);
     }
   };
-  xlm.send(data);
-  console.log(data);
+  // xml.send(data);
 }
 
-// function post() {
-//   submit.addEventListener("click", () => {
-//     const Name = sessionStorage.getItem("name");
-//     const email = sessionStorage.getItem("email");
-//     const phone = sessionStorage.getItem("phone");
-//     const date = sessionStorage.getItem("date_of_birth");
-//     const experience = sessionStorage.getItem("experience_level");
-//     const participation = Boolean(
-//       sessionStorage.getItem("already_participated")
-//     );
-//     const id = Number(sessionStorage.getItem("character_id"));
-
-//     if (window) {
-//       let storage = {};
-//       Object.keys(sessionStorage).forEach((key) => {
-//         storage[key] = sessionStorage.getItem(key);
-//       });
-//       let data = JSON.stringify(storage);
-
-//       fetch("https://chess-tournament-api.devtest.ge/api/register", {
-//         method: "POST",
-//         body: JSON.stringify(data),
-//         headers: { "Content-type": "application/json; charset=UTF-8" },
-//       })
-//         .then((response) => response.json())
-//         .then((json) => console.log(json))
-//         .catch((err) => console.log(err));
-//     }
-//   });
-//   form.submit();
-// }
-// window.onload = function () {
-//   if (sessionStorage.getItem("experience_level")) {
-//     p1.innerHTML = sessionStorage.getItem("experience_level");
-//   }
-//   if (sessionStorage.getItem("character_id")) {
-//     p2.innerHTML = sessionStorage.getItem("character_id");
-//   }
-// };
-// optionOne.forEach((e) => {
-//   e.addEventListener("click", function () {
-//     sessionStorage.setItem("experience_level", e.innerText);
-//   });
-// });
-// optionApi.forEach((e) => {
-//   e.addEventListener("click", function () {
-//     sessionStorage.setItem("character_id", id(e));
-//   });
-// });
-// function char(el) {
-//   if (sessionStorage.getItem("character_id") == 1) {
-//     return "Nona ";
-//   }
-// }
-// function id(e) {
-//   if (e.innerText.includes("Nona")) {
-//     return "1";
-//   } else if (e.innerText.includes("Bobby")) {
-//     return "2";
-//   } else if (e.innerText.includes("Tal")) {
-//     return "2";
-//   } else if (e.innerText.includes("Magnus")) {
-//     return "4";
-//   } else {
-//     return "5";
-//   }
-// }
-// optionApi.forEach((e) => {
-//   e.addEventListener("click", function () {
-//     sessionStorage.setItem("character_id", e.getAttribute('value'));
-
-//   });
-// });
-// console.log(p2.getAttribute("value"));
-// radiola.addEventListener("change", function () {
-//   sessionStorage.setItem("already_partipicated", emailValid.value);
-//   lab2.textContent = "";
-// });
-
-// players.addEventListener("click", () => {
-//   players.classList.toggle("active");
-// });
-// opt1.addEventListener("click", () => {
-//   opt1.classList.toggle("active");
-//   opts1.classList.toggle("active");
-//   if (opt2.classList.contains("active")) {
-//     arr2.classList.remove("active");
-//   }
-//   opts2.classList.remove("active");
-// });
-// opt2.addEventListener("click", () => {
-//   opt2.classList.toggle("active");
-//   opts2.classList.toggle("active");
-//   if (opt1.classList.contains("active")) {
-//     arr1.classList.remove("active");
-//   }
-//   opts1.classList.remove("active");
-// });
-
-// opts1.addEventListener("click", () => {
-//   num2.classList.add("num2back");
-//   opts1.classList.remove("active");
-//   arr1.classList.remove("active");
-// });
-
-// opts2.addEventListener("click", () => {
-//   opts2.classList.remove("active");
-//   num2.classList.add("num2back");
-//   arr2.classList.remove("active");
+/****FINALLY, SENDING COLLECTED DATA ON SUBMIT IF EVERYTHING IS VALID******/
+form.addEventListener("submit", (e) => {
+  if (validation()) {
+    validation();
+  } else {
+    e.preventDefault();
+  }
+});

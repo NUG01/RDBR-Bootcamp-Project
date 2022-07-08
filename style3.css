@@ -1,3 +1,4 @@
+/***********FOR GENERAL LAYOUT*************/
 * {
   margin: 0;
   padding: 0;
@@ -56,7 +57,8 @@ body {
   grid-template-rows: 8.4rem 1fr;
   background-color: #f5f5f5;
 }
-
+/*******GENERAL ENDS HERE********/
+/*******FOR QUOTE ON IMAGE********/
 .blockQ {
   margin-top: 15rem;
   margin-left: 12rem;
@@ -80,6 +82,9 @@ body {
   align-self: center;
   transform: translateX(40%);
 }
+/******QUOTE ENDS HERE*********/
+
+/******SECTION SECOND HALF CONTENT STYLING AND LAYOUT******/
 .cont1 {
   background-color: #f5f5f5;
   border-bottom: 1px solid #b9b4c34d;
@@ -177,6 +182,9 @@ body {
   transform: translateX(5%);
   color: #212529;
 }
+/********CONTENT ENDS HERE********/
+
+/******FOR BUTTONS*********/
 .getStarted {
   display: flex;
   align-items: center;
@@ -219,9 +227,7 @@ body {
   border: 0.4rem solid #c2a5f9cc;
   margin: 0;
 }
-/* .getStarted:hover,
-.getStarted:active {
-  /* padding: 0.8rem 2rem; */
+
 .back {
   background: none;
   border: none;
@@ -232,10 +238,8 @@ body {
   border: 2px solid #77757a4d;
   font-size: 2rem;
   font-family: "Open Sans";
-  /* margin: 1.2rem 2.4rem; */
 }
 .back:hover {
-  /* border: 0.4 solid #c2a5f9cc; */
   background-color: #d0c5e4cc;
   cursor: pointer;
 }
@@ -247,7 +251,9 @@ body {
 .buttons {
   width: 84%;
 }
+/*****BUTTONS END HERE*******/
 
+/*******FORM*********/
 .selects {
   display: flex;
 }
@@ -304,7 +310,6 @@ body {
 }
 .selectBox div {
   width: 100%;
-  /* transition: all 0.3s; */
   border-radius: 3px;
   overflow: hidden;
 }
@@ -350,30 +355,6 @@ body {
   border-radius: 0 0.3rem 0.3rem 0;
 }
 
-/* .options2.active {
-  position: absolute;
-  max-height: 12rem;
-  opacity: 1;
-  top: 112%;
-  right: 0;
-  width: 48.5%;
-  background-color: #f5f5f5;
-  box-shadow: inset 0 0 1px 1px #a7a4ac4d;
-  overflow-y: scroll;
-} */
-/*hereeeeeeeeeeeeeeeeeeeeeeeeeeeee*/
-/* .selected.active .options2,
-.selected.active .options1 {
-  position: absolute;
-  max-height: 31rem;
-  opacity: 1;
-  top: 112%;
-  right: 0;
-  width: 48.5%;
-  background-color: #f5f5f5;
-  box-shadow: inset 0 0 1px 1px #a7a4ac4d;
-  overflow-y: scroll;
-} */
 .selected.active .options2 {
   position: absolute;
   max-height: 31rem;
@@ -446,7 +427,6 @@ body {
   top: 50%;
   right: 0;
   transform: translate(-80%, -50%) rotate(0deg);
-  /* transform: translate(-80%, -50%); */
   pointer-events: none;
 }
 
@@ -454,12 +434,10 @@ body {
   position: relative;
 }
 .active .arrow1 {
-  /* transform: rotate(180deg); */
   transform: translate(-80%, -50%) rotate(180deg);
 }
 .active .arrow2 {
   transform: translate(-80%, -50%) rotate(180deg);
-  /* transform: rotate(180deg); */
 }
 .arrow {
   transition: all 0.3s ease-in;
@@ -473,12 +451,10 @@ body {
   height: 1.6rem;
   border-radius: 50%;
   border: 1px solid #95939a;
-  /* padding:0.5rem; */
   transition: all 0.2s ease-out;
   position: relative;
 }
 .yes-no:hover {
-  /* padding: 0; */
   background-color: #e8e6ee;
 }
 .radio1 label,
