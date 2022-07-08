@@ -12,4 +12,4 @@ features: Error messages are shown if any input is blank or with any mistake, if
 
 Fourth Page---Now regisration form is completed, information was sent to the server and users informations are deleted from the session storage, if user wants to navigate back to the form, it will be like new.
 
-/_ CODE PRESENTED IN THIS.README.md'S BRANCH IS NOT FINAL, AND WILL BE UPDATED IN THE FUTURE BRANCHES!_/
+/_ CODE PRESENTED IN THIS.README.md'S BRANCH IS NOT FINAL, AND WILL BE UPDATED AND OPTIMIZED IN THE FUTURE BRANCHES!_/
