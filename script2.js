@@ -29,7 +29,6 @@ const lab4 = document.querySelector(".lab4");
 let validName = /^.{3,}$/;
 let validEmail =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-// let validNum = /^[0-9]+.{8,9}$/;
 let validNum = /^[0-9]+$/;
 let date =
   /^(((0[1-9]|[12]\d|3[01])\/(0[13578]|1[02])\/((19|[2-9]\d)\d{2}))|((0[1-9]|[12]\d|30)\/(0[13456789]|1[012])\/((19|[2-9]\d)\d{2}))|((0[1-9]|1\d|2[0-8])\/02\/((19|[2-9]\d)\d{2}))|(29\/02\/((1[6-9]|[2-9]\d)(0[48]|[2468][048]|[13579][26])|((16|[2468][048]|[3579][26])00))))$/g;
@@ -97,7 +96,6 @@ inputi.forEach((el) => {
 let i = 0;
 form.addEventListener("submit", (e) => {
   i = 0;
-  // e.preventDefault();
   validation();
   if (i == 4) {
     form.submit();
@@ -106,19 +104,6 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
   }
 });
-// if (validi() == true) {
-//   form.submit();
-//   console.log("submitted");
-// } else {
-//   e.preventDefault();
-//   console.log("prevented");
-// }
-
-// if (i == 4) {
-//   form.submit();
-// } else {
-//   e.preventDefault();
-// }
 
 function validation() {
   if (nameValid.value.trim().match(validName)) {
@@ -134,46 +119,28 @@ function validation() {
     emailValid.value.toLowerCase().trim().includes("redberry.ge")
   ) {
     err2.classList.add("hidden");
-    // emailValid.classList.remove("inpdiv");
     inpdiv2.classList.remove("inpdiv");
     i++;
   } else {
     err2.classList.remove("hidden");
-    // emailValid.classList.add("inpdiv");
     inpdiv2.classList.add("inpdiv");
   }
   if (numValid.value.trim().match(validNum) && numValid.value.length == 9) {
     err3.classList.add("hidden");
-
-    // numValid.classList.remove("inpdiv");
     inpdiv3.classList.remove("inpdiv");
     i++;
   } else {
     err3.classList.remove("hidden");
-    // numValid.classList.add("inpdiv");
     inpdiv3.classList.add("inpdiv");
   }
   if (dateValid.value.match(date)) {
     err4.classList.add("hidden");
-    // dateValid.classList.remove("inpdiv");
     inpdiv4.classList.remove("inpdiv");
     i++;
-    // document.form1.text1.focus();
   } else {
     err4.classList.remove("hidden");
-    // dateValid.classList.add("inpdiv");
     inpdiv4.classList.add("inpdiv");
   }
-
-  // if (i > 0) {
-  //   num1.classList.add("green");
-  // }
-  // if (i === 4) {
-  //   return true;
-  //   // greenticks.classList.remove("hidden");
-  // } else {
-  //   return false;
-  // }
 }
 let result;
 let j;
@@ -276,55 +243,3 @@ inputi.forEach((el) => {
     }
   });
 });
-
-// });
-// submit.addEventListener("click", function (e) {
-//   if (nameValid.value.match(validName)) {
-//     err1.classList.add("hidden");
-//     k++;
-//     // document.form1.text1.focus();
-//     if (k === 4) {
-//       return true;
-//     }
-//   } else {
-//     err1.classList.remove("hidden");
-//     e.preventDefault();
-//     // return false;
-//     // document.form1.text1.focus();
-//   }
-//   if (emailValid.value.match(validEmail)) {
-//     err2.classList.add("hidden");
-//     k++;
-//     if (k === 4) {
-//       return true;
-//     }
-//     // document.form1.text1.focus();
-//   } else {
-//     err2.classList.remove("hidden");
-//     e.preventDefault();
-//     // document.form1.text1.focus();
-//   }
-//   if (numValid.value.match(validNum) && numValid.value.length == 9) {
-//     err3.classList.add("hidden");
-//     k++;
-//     // document.form1.text1.focus();
-//     if (k === 4) {
-//       return true;
-//     }
-//   } else {
-//     err3.classList.remove("hidden");
-//     e.preventDefault();
-//     // document.form1.text1.focus();
-//   }
-//   if (dateValid.value !== "") {
-//     err4.classList.add("hidden");
-//     k++;
-//     // document.form1.text1.focus();
-//     if (k === 4) {
-//       return true;
-//     }
-//   } else {
-//     err4.classList.remove("hidden");
-//     e.preventDefault();
-//   }
-// });

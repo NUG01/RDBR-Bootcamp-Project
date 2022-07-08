@@ -1,3 +1,4 @@
+/**********GENERAL CSS FOR LAYOUT**************/
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +11,6 @@ html {
 body {
   width: 100vw;
   height: 100vh;
-  /* overflow: hidden; */
 }
 .welcome {
   display: grid;
@@ -31,8 +31,6 @@ body {
   width: 25.3rem;
 }
 .img1 {
-  /* width: 100%;
-  height: 100%; */
   background-image: url("photos/pic-2.jpg");
   background-size: cover;
   background-position: center;
@@ -56,7 +54,13 @@ body {
   grid-template-rows: 8.4rem 1fr;
   background-color: #f5f5f5;
 }
+*:focus {
+  outline-style: none;
+  box-shadow: 0 0 0 3px #c2a5f9cc;
+}
+/*********GENERAL CSS ENDS HERE************/
 
+/*************FOR QUOTE ON IMAGE*************/
 .blockQ {
   margin-top: 15rem;
   margin-left: 15rem;
@@ -76,6 +80,9 @@ body {
   font-weight: 500;
   color: #e5e6e8;
 }
+/**************QUOTE STYLE ENDS HERE************/
+
+/************MAIN TWO CONTAINERS IN SECTION SECOND HALF*****/
 .cont1 {
   background-color: #f5f5f5;
   border-bottom: 1px solid #b9b4c34d;
@@ -102,6 +109,9 @@ body {
   gap: 4rem;
   position: relative;
 }
+/*********ENDS HERE*************/
+
+/***************FOR CONT2 CONTENT**************/
 .path {
   display: flex;
   flex-direction: column;
@@ -176,6 +186,9 @@ body {
   transform: translateX(5%);
   color: #343338;
 }
+/**********************CONTENT ENDS HERE**************/
+
+/**************INPUTS*****************/
 .inputs div .span {
   color: #dc3545;
 }
@@ -214,6 +227,7 @@ body {
   color: #686769;
   pointer-events: none;
 }
+/*****BUTTON AFTER INPUTS**********/
 .getStarted {
   display: flex;
   align-items: center;
@@ -222,9 +236,10 @@ body {
   font-size: 2rem;
   font-family: "Open Sans";
   font-weight: 400;
-  /* padding: 1.2rem 2.4rem;
-  */
   margin: 1.2rem 2.4rem;
+  text-decoration: none;
+  color: white;
+  box-shadow: none;
 }
 .getBack {
   padding: 1.2rem 2.4rem;
@@ -232,13 +247,6 @@ body {
   font-family: "Open Sans";
   font-weight: 400;
   display: inline-block;
-}
-
-.getStarted {
-  text-decoration: none;
-  color: white;
-  /* border-radius: 8px; */
-  box-shadow: none;
 }
 .getBack:link,
 .getBack:visited {
@@ -259,9 +267,6 @@ body {
   border: 0.4rem solid #c2a5f9cc;
   margin: 0;
 }
-/* .getStarted:hover,
-.getStarted:active {
-  /* padding: 0.8rem 2rem; */
 .back {
   background: none;
   border: none;
@@ -272,10 +277,8 @@ body {
   border: 2px solid #77757a4d;
   font-size: 2rem;
   font-family: "Open Sans";
-  /* margin: 1.2rem 2.4rem; */
 }
 .back:hover {
-  /* border: 0.4 solid #c2a5f9cc; */
   background-color: #d0c5e4cc;
   cursor: pointer;
 }
@@ -288,7 +291,9 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+/***********BUTTONS ENDS HERE***********/
 
+/*************INPUTS AND ITS ERROR MESSAGES**********/
 .margbo {
   margin-bottom: 2.4rem;
 }
@@ -297,10 +302,6 @@ body {
 }
 .inputs div:hover .labeli {
   color: #a8a2ad !important;
-}
-*:focus {
-  outline-style: none;
-  box-shadow: 0 0 0 3px #c2a5f9cc;
 }
 
 .error {
@@ -356,6 +357,7 @@ body {
 .close:hover {
   cursor: pointer;
 }
+/************FOR NUMBERS PATH DISPLAYED AT THE TOP***************/
 .num1.greenN {
   background-color: #e9faf1;
 }
