@@ -348,6 +348,9 @@ function post() {
   let storage = {};
   Object.keys(sessionStorage).forEach((key) => {
     storage[key] = sessionStorage.getItem(key);
+    if (storage[key] == sessionStorage.getItem("experience_level")) {
+      storage[key] = storage[key].toLowerCase();
+    }
   });
   /**************BELOW CODE TRANSLATING STRING TRUE AND FALSE INTO BOOLEAN VALUES SINCE SESSION STORAGE
    * CANT STORE BOOLEANS, SAME FOR NUMBER*****************/
@@ -362,6 +365,7 @@ function post() {
   }
   /***********GETTING UNCAUGHT SYNTAX ERROR UNXPECTED END OF JSON AND UNPROCESSABLE ENTITY:( **************/
   storage["character_id"] = Number(sessionStorage.getItem("character_id"));
+  console.log(storage);
   let data = JSON.stringify(storage);
   fetch("https://chess-tournament-api.devtest.ge/api/register", {
     method: "POST",
