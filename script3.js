@@ -47,8 +47,7 @@ const act1 = document.querySelector(".act1");
 const act2 = document.querySelector(".act2");
 let n = 0;
 let n2 = 0;
-let r = 0;
-let v = 0;
+
 const request = new XMLHttpRequest();
 request.open("GET", "https://chess-tournament-api.devtest.ge/api/grandmasters");
 request.send();
@@ -73,22 +72,22 @@ request.addEventListener("load", function () {
 
   const html1 = `<input type="radio" class="radioSelect" id="radioSelect" name="select">
      <label for="radioSelect" class="api">${id1.name}</label>
-      <img class="apimg" src="${id1.image}"/>`;
+      <img class="apimg" src="https://chess-tournament-api.devtest.ge/${id1.image}"/>`;
   opiate1.insertAdjacentHTML("beforeend", html1);
 
   const html2 = `<input type="radio" class="radioSelect" id="radioSelect" name="select">
      <label for="radioSelect" class="api">${id2.name}</label>
-      <img class="apimg" src="${id2.image}"/>`;
+      <img class="apimg" src="https://chess-tournament-api.devtest.ge/${id2.image}"/>`;
   opiate2.insertAdjacentHTML("beforeend", html2);
 
   const html3 = `<input type="radio" class="radioSelect" id="radioSelect" name="select">
      <label for="radioSelect" class="api">${id3.name}</label>
-      <img class="apimg" src="${id3.image}"/>`;
+      <img class="apimg" src="https://chess-tournament-api.devtest.ge/${id3.image}"/>`;
   opiate3.insertAdjacentHTML("beforeend", html3);
 
   const html4 = `<input type="radio" class="radioSelect" id="radioSelect" name="select">
      <label for="radioSelect" class="api">${id4.name}</label>
-      <img class="apimg" src="${id4.image}"/>`;
+      <img class="apimg" src="https://chess-tournament-api.devtest.ge/${id4.image}"/>`;
   opiate4.insertAdjacentHTML("beforeend", html4);
 
   const html5 = `<input type="radio" class="radioSelect" id="radioSelect" name="select">
@@ -108,12 +107,12 @@ request.addEventListener("load", function () {
   });
 
   /***GETTING LEVEL OF KNOWLEDGE AND CHARACTER VALUES IN SESSION STORAGE****/
-  optionOne.forEach((e) => {
+  levels.forEach((e) => {
     e.addEventListener("click", function () {
       sessionStorage.setItem("experience_level", e.innerText);
     });
   });
-  optionApi.forEach((e) => {
+  levels2.forEach((e) => {
     e.addEventListener("click", function () {
       sessionStorage.setItem("character_id", id(e));
     });
@@ -145,7 +144,7 @@ window.onload = function () {
   );
   request2.send();
   request2.addEventListener("load", function () {
-    let [idi1, idi2, idi3, idi4] = JSON.parse(this.responseText);
+    const [idi1, idi2, idi3, idi4] = JSON.parse(this.responseText);
     if (sessionStorage.getItem("experience_level")) {
       n++;
       num2.classList.add("num2back");
@@ -159,19 +158,19 @@ window.onload = function () {
     /*********THIS FUNCTIONS LOADS COMPATIBLE IMAGE WITH ID AND SEND STRING TO HTML***********/
     function char() {
       if (sessionStorage.getItem("character_id") == idi1.id) {
-        let str = `<p>${idi1.name}</p><img class="apimg2" src="${idi1.image}"/>`;
+        let str = `<p>${idi1.name}</p><img class="apimg2" src="https://chess-tournament-api.devtest.ge/${idi1.image}"/>`;
         return str;
       }
       if (sessionStorage.getItem("character_id") == idi2.id) {
-        let str2 = `<p>${idi2.name}</p><img class="apimg2" src="${idi2.image}"/>`;
+        let str2 = `<p>${idi2.name}</p><img class="apimg2" src="https://chess-tournament-api.devtest.ge/${idi2.image}"/>`;
         return str2;
       }
       if (sessionStorage.getItem("character_id") == idi3.id) {
-        let str3 = `<p>${idi3.name}</p><img class="apimg2" src="${idi3.image}"/>`;
+        let str3 = `<p>${idi3.name}</p><img class="apimg2" src="https://chess-tournament-api.devtest.ge/${idi3.image}"/>`;
         return str3;
       }
       if (sessionStorage.getItem("character_id") == idi4.id) {
-        let str4 = `<p>${idi4.name}</p><img class="apimg2" src="${idi4.image}"/>`;
+        let str4 = `<p>${idi4.name}</p><img class="apimg2" src="https://chess-tournament-api.devtest.ge/${idi4.image}"/>`;
         return str4;
       }
       if (sessionStorage.getItem("character_id") == 5) {
@@ -179,14 +178,14 @@ window.onload = function () {
         return str5;
       }
     }
-    /*********RADIO BUTTONS FUNCTIONALITY**********/
-    let yesNo = sessionStorage.getItem("already_participated");
-    if (yesNo == true) {
-      act1.classList.add("activated");
-    } else if (yesNo == false) {
-      act2.classList.add("activated");
-    }
   });
+  /*********RADIO BUTTONS FUNCTIONALITY**********/
+  let yesNo = sessionStorage.getItem("already_participated");
+  if (yesNo == "true") {
+    act1.classList.add("activated");
+  } else if (yesNo == "false") {
+    act2.classList.add("activated");
+  }
 };
 /***************CHOOSING FROM OPTIONS AND SETTING IT AS INPUT INNER_HTML***********8*/
 allOpts.forEach((optn) => {
@@ -225,28 +224,29 @@ allOpts.forEach((optn) => {
       n++;
     }
   });
-  /***********GETTING VALUE ROM RADIO BUTTONS, SINCE THEIR VALUE IS TRUE AND FALSE,
-   * DOLLAR EXPRESSION IS USED TO TRASLATE STRING INTO BOOLEAN, AND ALSO MANIPULATING ITS STYLING*************/
-  radiol.forEach((r) => {
-    r.addEventListener("click", (e) => {
-      if (r.parentElement.classList.contains("radio2")) {
-        sessionStorage.setItem("already_participated", `${false}`);
-        r.parentElement.previousElementSibling
-          .querySelector("input")
-          .classList.remove("activated");
-        r.nextElementSibling.classList.add("activated");
-      } else if (r.parentElement.classList.contains("radio1")) {
-        sessionStorage.setItem("already_participated", `${true}`);
-        r.parentElement.nextElementSibling
-          .querySelector("input")
-          .classList.remove("activated");
-        r.nextElementSibling.classList.add("activated");
-      }
-    });
+  /***********GETTING VALUE ROM RADIO BUTTONS*************/
+});
+radiol.forEach((r) => {
+  r.addEventListener("click", (e) => {
+    if (r.parentElement.classList.contains("radio2")) {
+      sessionStorage.setItem("already_participated", false);
+      r.parentElement.previousElementSibling
+        .querySelector("input")
+        .classList.remove("activated");
+      r.nextElementSibling.classList.add("activated");
+    } else if (r.parentElement.classList.contains("radio1")) {
+      sessionStorage.setItem("already_participated", true);
+      r.parentElement.nextElementSibling
+        .querySelector("input")
+        .classList.remove("activated");
+      r.nextElementSibling.classList.add("activated");
+    }
   });
 });
 /**********VALIDATION FUNCTION THAT USES INCREMENTS WHICH WAS USED WHEN INPUT VALUES WHERE CLICKED,
  * IF N OR N2 ISNT 0, THAT MEANS VALUE WAS CHOSEN AND THERE IS NO REASON TO NOT VALIDATE, IF NOT, ADDING RED BACKGROUND************/
+let r = 0;
+let v = 0;
 function validation() {
   if (!n2 > 0) {
     forArr.classList.add("bordered");
@@ -280,40 +280,91 @@ function validation() {
     !radioP.classList.contains("redio")
   ) {
     form.submit();
-    xmlReq();
-    return true;
   }
 }
-/*******SENDING COLLECTED DATA WITH XMLH, (HAD SYNTAX ERROR WITH FETCH FOR SOME REASON)***********/
-function xmlReq() {
-  let storage = {};
-  Object.keys(sessionStorage).forEach((key) => {
-    storage[key] = sessionStorage.getItem(key);
-  });
-  storage["already_participated"] = Boolean(
-    sessionStorage.getItem("already_participated")
+let storage = {};
+Object.keys(sessionStorage).forEach((key) => {
+  storage[key] = sessionStorage.getItem(key);
+});
+/**************BELOW CODE TRANSLATING STRING TRUE AND FALSE INTO BOOLEAN VALUES SINCE SESSION STORAGE
+ * CANT STORE BOOLEANS, SAME FOR NUMBER*****************/
+if (sessionStorage.getItem("already_participated") == "true") {
+  storage["already_participated"] = JSON.parse(
+    sessionStorage.getItem("already_participated") === true
   );
-  let data = JSON.stringify(storage);
-
-  let xml = new XMLHttpRequest();
-  let url = "https://chess-tournament-api.devtest.ge/api/register";
-  xml.open("POST", url, true);
-
-  xml.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-  xml.onreadystatechange = function () {
-    if (xml.readyState == 4 && xml.status == 200) {
-      alert(http.responseText);
-    }
-  };
-  // xml.send(data);
+} else {
+  storage["already_participated"] = JSON.parse(
+    sessionStorage.getItem("already_participated") !== false
+  );
 }
+/***********GETTING UNCAUGHT SYNTAX ERROR UNXPECTED END OF JSON AND UNPROCESSABLE ENTITY:( **************/
+storage["character_id"] = Number(sessionStorage.getItem("character_id"));
 
 /****FINALLY, SENDING COLLECTED DATA ON SUBMIT IF EVERYTHING IS VALID******/
 form.addEventListener("submit", (e) => {
   if (validation()) {
     validation();
+    post();
   } else {
     e.preventDefault();
   }
 });
+
+function post() {
+  let storage = {};
+  Object.keys(sessionStorage).forEach((key) => {
+    storage[key] = sessionStorage.getItem(key);
+  });
+  /**************BELOW CODE TRANSLATING STRING TRUE AND FALSE INTO BOOLEAN VALUES SINCE SESSION STORAGE
+   * CANT STORE BOOLEANS, SAME FOR NUMBER*****************/
+  if (sessionStorage.getItem("already_participated") == "true") {
+    storage["already_participated"] = JSON.parse(
+      sessionStorage.getItem("already_participated") === true
+    );
+  } else {
+    storage["already_participated"] = JSON.parse(
+      sessionStorage.getItem("already_participated") !== false
+    );
+  }
+  /***********GETTING UNCAUGHT SYNTAX ERROR UNXPECTED END OF JSON AND UNPROCESSABLE ENTITY:( **************/
+  storage["character_id"] = Number(sessionStorage.getItem("character_id"));
+  let data = JSON.stringify(storage);
+  fetch("https://chess-tournament-api.devtest.ge/api/register", {
+    method: "POST",
+    body: JSON.stringify(storage),
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  })
+    .then((response) => response.json())
+    .catch((error) => {
+      console.log("error");
+    });
+}
+
+// const req = new XMLHttpRequest();
+// req.onreadystatechange = function () {
+//   if (req.readyState == 4) {
+//     console.log("half");
+//     if (req.status === 200) {
+//       console.log("successful");
+//     }
+//   } else {
+//     console.log(req.responseText);
+//   }
+//   if (req.status == 400) {
+//     console.log("ouch");
+//   }
+// };
+// // req.setRequestHeader("Content-type", "application/json; charset=utf-8");
+// req.open(
+//   "POST",
+//   "https://chess-tournament-api.devtest.ge/api/register",
+//   true
+// );
+// req.setRequestHeader("Content-type", "application/json; charset=utf-8");
+// console.log(data);
+// req.send(data);
+// console.log(req.status);
+// });
