@@ -4,6 +4,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+*:focus {
+  outline-style: none;
+  box-shadow: 0 0 0 3px #c2a5f9cc;
+}
+button:focus {
+  box-shadow: none;
+}
 html {
   font-size: 62.5%;
   font-family: "Open Sans", sans-serif;
@@ -537,10 +544,6 @@ body {
 .know {
   pointer-events: none;
 }
-/* .bordered {
-  background-color: #f5e4e6;
-  color: #e4707d;
-} */
 .redio {
   color: #dc3545;
 }
@@ -596,9 +599,7 @@ body {
 .fortool .tooldio::after {
   transform: translate(0.8rem, -115%);
 }
-/* .fortool .tooldio::before {
-  transform: translate(0.8rem, -115%);
-} */
+
 .fortool .tooltip::after,
 .fortool .tooldio::after {
   content: attr(tooltip);

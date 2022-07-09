@@ -4,6 +4,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+*:focus {
+  outline-style: none;
+  box-shadow: 0 0 0 3px #c2a5f9cc;
+}
+button:focus {
+  box-shadow: none;
+}
 html {
   font-size: 62.5%;
   font-family: "Open-sans", sans-serif;
