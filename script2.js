@@ -72,6 +72,7 @@ window.onload = function () {
   if (s == 4) {
     num1.classList.add("hidden");
     greenticks.classList.remove("hidden");
+    num1div.classList.add("greenBack");
   } else {
     num1.classList.remove("hidden");
     greenticks.classList.add("hidden");
@@ -148,7 +149,7 @@ const cor3 = document.querySelector(".correct3");
 const cor4 = document.querySelector(".correct4");
 
 inputi.forEach((el) => {
-  el.addEventListener("input", (e) => {
+  el.addEventListener("change", (e) => {
     if (nameValid.value.trim().match(validName)) {
       cor1.classList.remove("hidden");
       inpdiv1.classList.remove("inpdiv");
@@ -197,7 +198,7 @@ inputi.forEach((el) => {
 
 /*******************ADDS AND REMOVES INPUTS BACKGROUND COLOR AND FONT COLOR ON FOCUS CHANGE BASED ON INPUT VALIDITY****/
 inputi.forEach((el) => {
-  el.addEventListener("change", (e) => {
+  el.addEventListener("click", (e) => {
     if (nameValid.value.trim().match(validName)) {
       inpdiv1.classList.remove("inpdiv");
     } else {

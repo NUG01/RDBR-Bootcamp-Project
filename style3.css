@@ -32,8 +32,6 @@ body {
   width: 25.3rem;
 }
 .img1 {
-  /* width: 100%;
-  height: 100%; */
   background-image: url("photos/pic-3.jpg");
   background-size: cover;
   background-position: center;
@@ -297,7 +295,7 @@ body {
   gap: 0.9rem;
 }
 .radios {
-  gap: 1rem;
+  position: relative;
 }
 .inputs div span {
   color: #dc3545;
@@ -536,16 +534,20 @@ body {
 .know {
   pointer-events: none;
 }
-.bordered {
+/* .bordered {
   background-color: #f5e4e6;
-  color: #dc3545;
-}
+  color: #e4707d;
+} */
 .redio {
   color: #dc3545;
 }
 .radiol {
   color: #212529;
 }
+.radioP {
+  margin-bottom: 1rem;
+}
+
 .getStarted .next {
   color: white;
 }
@@ -557,4 +559,62 @@ body {
 }
 .forArr2 {
   position: relative;
+}
+.tooltip::after,
+.tooltip::before,
+.tooldio::after,
+.tooldio::before {
+  position: absolute;
+  content: "";
+  top: -0%;
+  transform: translate(2rem, -115%);
+  background-color: #093f68;
+  background-color: #f5e4e6;
+  color: #dc3545;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #be5c66;
+  transition: translate(2rem, -115%) scale(0);
+  transition: all 0.25s ease-out;
+}
+.fortool .tooltip::before,
+.fortool .tooltip::after,
+.fortool .tooldio::before,
+.fortool .tooldio::after {
+  position: absolute;
+  content: "";
+  top: -0%;
+  transform: translate(2rem, -115%) scale(1);
+  background-color: #093f68;
+  background-color: #f5e4e6;
+  color: #dc3545;
+  border-radius: 6px;
+  box-shadow: 0 0 4px #be5c66;
+}
+.fortool .tooldio::after {
+  transform: translate(0.8rem, -115%);
+}
+/* .fortool .tooldio::before {
+  transform: translate(0.8rem, -115%);
+} */
+.fortool .tooltip::after,
+.fortool .tooldio::after {
+  content: attr(tooltip);
+  width: max-content;
+  padding: 1rem 2rem;
+}
+.fortool .tooltip::before {
+  content: "";
+  border: 9px solid transparent;
+  background-color: #f5f5f5;
+  border-top-color: #dc3545;
+  transform: translate(4.2rem, -48%);
+  box-shadow: none;
+}
+.fortool .tooldio::before {
+  content: "";
+  border: 9px solid transparent;
+  background-color: #f5f5f5;
+  border-top-color: #dc3545;
+  transform: translate(3rem, -48%);
+  box-shadow: none;
 }

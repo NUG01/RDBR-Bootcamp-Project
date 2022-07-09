@@ -45,6 +45,7 @@ const radiola = document.querySelector(".radiola");
 const optionP = document.querySelector(".optionP");
 const act1 = document.querySelector(".act1");
 const act2 = document.querySelector(".act2");
+const radioError = document.querySelector(".radios");
 let n = 0;
 let n2 = 0;
 
@@ -146,12 +147,12 @@ window.onload = function () {
   request2.addEventListener("load", function () {
     const [idi1, idi2, idi3, idi4] = JSON.parse(this.responseText);
     if (sessionStorage.getItem("experience_level")) {
-      n++;
+      n2++;
       num2.classList.add("num2back");
       p1.innerHTML = sessionStorage.getItem("experience_level");
     }
     if (sessionStorage.getItem("character_id")) {
-      n2++;
+      n++;
       num2.classList.add("num2back");
       forArr2.firstChild.innerHTML = char();
     }
@@ -249,37 +250,48 @@ let r = 0;
 let v = 0;
 function validation() {
   if (!n2 > 0) {
-    forArr.classList.add("bordered");
+    // forArr.classList.add("bordered");
+    selected1.classList.add("fortool");
     v++;
   }
   if (!n > 0) {
-    forArr2.classList.add("bordered");
+    // forArr2.classList.add("bordered");
+    selected2.classList.add("fortool");
     v++;
   }
   /****SEARCHES IF RADIO BUTTON AS ACTIVATED WITH SESSION STORAGE DATA*****/
   if (!sessionStorage.getItem("already_participated")) {
-    radioP.classList.add("redio");
+    // radioP.classList.add("redio");
+    radioError.classList.add("fortool");
     v++;
   }
   allOpts.forEach((ev) => {
     ev.addEventListener("click", () => {
-      ev.parentElement.previousElementSibling.classList.remove("bordered");
+      // ev.parentElement.previousElementSibling.classList.remove("bordered");
+      // ev.parentElement.parentElement.classList.remove("fortool");
+      if (ev.parentElement.classList.contains("options1")) {
+        selected1.classList.remove("fortool");
+      } else {
+        selected2.classList.remove("fortool");
+      }
     });
   });
 
   radiol.forEach((rad) => {
     rad.addEventListener("click", () => {
-      radioP.classList.remove("redio");
+      // radioP.classList.remove("redio");
+      radioError.classList.remove("fortool");
       r++;
     });
   });
   /**********IF THESE INPUTS DONT CONTAIN ANY VALIDATION ERROR CLASS, SUBMIT IS POSIBLE AND DATA IS SENT TO THE SERVER*******/
   if (
-    !forArr.classList.contains("bordered") &&
-    !forArr2.classList.contains("bordered") &&
-    !radioP.classList.contains("redio")
+    !selected1.classList.contains("fortool") &&
+    !selected2.classList.contains("fortool") &&
+    !radioError.classList.contains("fortool")
   ) {
     form.submit();
+    return true;
   }
 }
 let storage = {};

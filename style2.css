@@ -203,7 +203,7 @@ body {
   margin-bottom: 4.2rem;
 }
 .inputs div {
-  width: 90%;
+  width: 100%;
   position: relative;
   border-radius: 4px;
 }
@@ -226,6 +226,7 @@ body {
   transform: translate(5px, -50%);
   color: #686769;
   pointer-events: none;
+  padding-left: 0.5rem;
 }
 /*****BUTTON AFTER INPUTS**********/
 .getStarted {
@@ -311,6 +312,7 @@ body {
   background-color: white;
   font-family: "Open Sans", sans-serif;
   box-shadow: 0 3px 12px #d0cdd64d;
+  border-radius: 4px;
 }
 .bigError {
   position: absolute;
@@ -361,6 +363,9 @@ body {
 .num1div.greenN {
   background-color: #e9faf1;
 }
+.greenBack {
+  background-color: #e9faf1;
+}
 .inpdiv .red {
   background-color: #f5e4e6;
   color: #dc3545;
@@ -390,4 +395,7 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px #f5f5f5 inset !important;
   box-shadow: 0 0 0 30px #f5f5f5 inset !important;
+}
+.scale {
+  transform: scale(0);
 }

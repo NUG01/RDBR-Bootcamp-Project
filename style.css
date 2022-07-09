@@ -110,7 +110,9 @@ body {
   overflow: hidden;
   background-color: #212529;
   margin: 1.2rem 2.4rem;
+  position: relative;
 }
+
 .getStarted:link,
 .getStarted:visited {
   text-decoration: none;
@@ -119,6 +121,6 @@ body {
 }
 .start:hover {
   cursor: pointer;
-  border: 0.4rem solid #c2a5f9cc;
   margin: 0.8rem 2rem;
+  border: 0.4rem solid #c2a5f9cc;
 }
