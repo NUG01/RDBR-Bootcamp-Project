@@ -158,6 +158,7 @@ inputi.forEach((el) => {
       inpdiv1.classList.remove("inpdiv");
       err1.classList.remove("grow");
       err1.classList.add("scale");
+      inputRed();
     } else {
       cor1.classList.add("hidden");
     }
@@ -204,8 +205,9 @@ inputi.forEach((el) => {
 });
 
 /*******************ADDS AND REMOVES INPUTS BACKGROUND COLOR AND FONT COLOR ON FOCUS CHANGE BASED ON INPUT VALIDITY****/
-inputi.forEach((el) => {
-  el.addEventListener("click", (e) => {
+
+inputi.forEach((e) => {
+  e.addEventListener("input", () => {
     if (nameValid.value.trim().match(validName)) {
       inpdiv1.classList.remove("inpdiv");
     } else {
@@ -231,6 +233,33 @@ inputi.forEach((el) => {
     }
   });
 });
+// inputi.forEach((el) => {
+//   // el.addEventListener("submit", (e) => {
+//   if (nameValid.value.trim().match(validName)) {
+//     inpdiv1.classList.remove("inpdiv");
+//   } else {
+//     inpdiv1.classList.add("inpdiv");
+//   }
+//   if (
+//     emailValid.value.trim().match(validEmail) &&
+//     emailValid.value.toLowerCase().trim().includes("redberry.ge")
+//   ) {
+//     inpdiv2.classList.remove("inpdiv");
+//   } else {
+//     inpdiv2.classList.add("inpdiv");
+//   }
+//   if (numValid.value.trim().match(validNum) && numValid.value.length == 9) {
+//     inpdiv3.classList.remove("inpdiv");
+//   } else {
+//     inpdiv3.classList.add("inpdiv");
+//   }
+//   if (dateValid.value.match(date)) {
+//     inpdiv4.classList.remove("inpdiv");
+//   } else {
+//     inpdiv4.classList.add("inpdiv");
+//   }
+// });
+// });
 /********FORM IS SUBMITTED IF VALIDATION IS SUCCESSFUL, IF NOT, SUBMIT DEFAULT BEHAVIOUR IS PREVENTED*********/
 form.addEventListener("submit", (e) => {
   i = 0;
