@@ -46,6 +46,7 @@ const optionP = document.querySelector(".optionP");
 const act1 = document.querySelector(".act1");
 const act2 = document.querySelector(".act2");
 const radioError = document.querySelector(".radios");
+const cont1 = document.querySelector(".cont1");
 let n = 0;
 let n2 = 0;
 
@@ -241,6 +242,27 @@ radiol.forEach((r) => {
         .querySelector("input")
         .classList.remove("activated");
       r.nextElementSibling.classList.add("activated");
+    }
+  });
+});
+/************UPDATES TOP TEXT TO 'ALMOST DONE!'************/
+window.addEventListener("input", () => {
+  if (
+    !selected1.classList.contains("fortool") &&
+    !selected2.classList.contains("fortool") &&
+    !radioError.classList.contains("fortool")
+  ) {
+    cont1.innerHTML = "<p>Almost Done!</p>";
+  }
+});
+allOpts.forEach((e) => {
+  e.addEventListener("click", () => {
+    if (
+      !selected1.classList.contains("fortool") &&
+      !selected2.classList.contains("fortool") &&
+      !radioError.classList.contains("fortool")
+    ) {
+      cont1.innerHTML = "<p>Almost Done!</p>";
     }
   });
 });

@@ -38,7 +38,8 @@ let date =
 /***********FOR ERROR MESSAGE CLOSE BUTTON ****************/
 close.forEach((x) => {
   x.addEventListener("click", function () {
-    x.parentElement.parentElement.classList.add("hidden");
+    x.parentElement.parentElement.classList.remove("grow");
+    x.parentElement.parentElement.classList.add("scale");
   });
 });
 
@@ -106,38 +107,40 @@ inputi.forEach((el) => {
 /***********VALIDATION FUNCTION, WHICH DISPLAYS ERROR MESSAGES**************/
 function validation() {
   if (nameValid.value.trim().match(validName)) {
-    err1.classList.add("hidden");
+    err1.classList.add("scale");
     inpdiv1.classList.remove("inpdiv");
     i++;
   } else {
-    err1.classList.remove("hidden");
+    err1.classList.add("grow");
     inpdiv1.classList.add("inpdiv");
   }
   if (
     emailValid.value.trim().match(validEmail) &&
     emailValid.value.toLowerCase().trim().includes("redberry.ge")
   ) {
-    err2.classList.add("hidden");
+    // err2.classList.add("hidden");
+    err2.classList.add("scale");
     inpdiv2.classList.remove("inpdiv");
     i++;
   } else {
-    err2.classList.remove("hidden");
+    // err2.classList.remove("hidden");
+    err2.classList.add("grow");
     inpdiv2.classList.add("inpdiv");
   }
   if (numValid.value.trim().match(validNum) && numValid.value.length == 9) {
-    err3.classList.add("hidden");
+    err3.classList.add("scale");
     inpdiv3.classList.remove("inpdiv");
     i++;
   } else {
-    err3.classList.remove("hidden");
+    err3.classList.add("grow");
     inpdiv3.classList.add("inpdiv");
   }
   if (dateValid.value.match(date)) {
-    err4.classList.add("hidden");
+    err4.classList.add("scale");
     inpdiv4.classList.remove("inpdiv");
     i++;
   } else {
-    err4.classList.remove("hidden");
+    err4.classList.add("grow");
     inpdiv4.classList.add("inpdiv");
   }
 }
@@ -149,11 +152,12 @@ const cor3 = document.querySelector(".correct3");
 const cor4 = document.querySelector(".correct4");
 
 inputi.forEach((el) => {
-  el.addEventListener("change", (e) => {
+  el.addEventListener("input", (e) => {
     if (nameValid.value.trim().match(validName)) {
       cor1.classList.remove("hidden");
       inpdiv1.classList.remove("inpdiv");
-      err1.classList.add("hidden");
+      err1.classList.remove("grow");
+      err1.classList.add("scale");
     } else {
       cor1.classList.add("hidden");
     }
@@ -162,21 +166,24 @@ inputi.forEach((el) => {
       emailValid.value.toLowerCase().trim().includes("redberry.ge")
     ) {
       cor2.classList.remove("hidden");
-      err2.classList.add("hidden");
+      err2.classList.remove("grow");
+      err2.classList.add("scale");
       inpdiv2.classList.remove("inpdiv");
     } else {
       cor2.classList.add("hidden");
     }
     if (numValid.value.trim().match(validNum) && numValid.value.length == 9) {
       cor3.classList.remove("hidden");
-      err3.classList.add("hidden");
+      err3.classList.remove("grow");
+      err3.classList.add("scale");
       inpdiv3.classList.remove("inpdiv");
     } else {
       cor3.classList.add("hidden");
     }
     if (dateValid.value.match(date)) {
       cor4.classList.remove("hidden");
-      err4.classList.add("hidden");
+      err4.classList.remove("grow");
+      err4.classList.add("scale");
       inpdiv4.classList.remove("inpdiv");
     } else {
       cor4.classList.add("hidden");
