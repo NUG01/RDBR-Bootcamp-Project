@@ -349,8 +349,11 @@ function post() {
   Object.keys(sessionStorage).forEach((key) => {
     storage[key] = sessionStorage.getItem(key);
     if (storage[key] == sessionStorage.getItem("experience_level")) {
-      storage[key] = storage[key].toLowerCase();
-    }
+      storage[key] = storage[key].toLowerCase(); 
+      if (storage[key] == "intermediate") {
+        storage[key] = "normal";
+      }
+    } 
   });
   /**************BELOW CODE TRANSLATING STRING TRUE AND FALSE INTO BOOLEAN VALUES SINCE SESSION STORAGE
    * CANT STORE BOOLEANS, SAME FOR NUMBER*****************/
