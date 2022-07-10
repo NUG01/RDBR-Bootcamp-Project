@@ -103,15 +103,17 @@ inputi.forEach((e) => {
   }
   window.addEventListener("click", () => {
     sessionStorage.setItem("date_of_birth", dateValid.value);
-    if (dateValid.value.trim().match(date)) {
-      num1div.classList.add("greenN");
-      cor4.classList.remove("hidden");
-      err4.classList.remove("grow");
-      err4.classList.add("scale");
-      inpdiv4.classList.remove("inpdiv");
-    } else {
-      cor4.classList.add("hidden");
-    }
+    dateValid.addEventListener("click", () => {
+      if (dateValid.value.trim().match(date)) {
+        num1div.classList.add("greenN");
+        cor4.classList.remove("hidden");
+        err4.classList.remove("grow");
+        err4.classList.add("scale");
+        inpdiv4.classList.remove("inpdiv");
+      } else {
+        cor4.classList.add("hidden");
+      }
+    });
   });
   e.addEventListener("keyup", function () {
     num1div.classList.add("greenN");
@@ -293,9 +295,10 @@ dateValid.addEventListener("change", () => {
 /********FORM IS SUBMITTED IF VALIDATION IS SUCCESSFUL, IF NOT, SUBMIT DEFAULT BEHAVIOUR IS PREVENTED*********/
 form.addEventListener("submit", (e) => {
   i = 0;
-  greenRemove();
+  // greenRemove();
   validation();
   if (i == 4) {
+    greenRemove();
     form.submit();
     return true;
   } else {
@@ -303,9 +306,9 @@ form.addEventListener("submit", (e) => {
   }
 });
 
-function greenRemove() {
-  cor4.classList.add("hidden");
-  cor3.classList.add("hidden");
-  cor2.classList.add("hidden");
-  cor1.classList.add("hidden");
+function greenAdd() {
+  cor4.classList.remove("hidden");
+  cor3.classList.remove("hidden");
+  cor2.classList.remove("hidden");
+  cor1.classList.remove("hidden");
 }
