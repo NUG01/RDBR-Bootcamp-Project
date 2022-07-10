@@ -295,10 +295,9 @@ dateValid.addEventListener("change", () => {
 /********FORM IS SUBMITTED IF VALIDATION IS SUCCESSFUL, IF NOT, SUBMIT DEFAULT BEHAVIOUR IS PREVENTED*********/
 form.addEventListener("submit", (e) => {
   i = 0;
-  // greenRemove();
   validation();
   if (i == 4) {
-    greenRemove();
+    greenAdd();
     form.submit();
     return true;
   } else {
