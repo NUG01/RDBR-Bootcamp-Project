@@ -24,6 +24,7 @@ const err1 = document.querySelector(".eror1");
 const err2 = document.querySelector(".eror2");
 const err3 = document.querySelector(".eror3");
 const err4 = document.querySelector(".eror4");
+const picker = document.querySelector(".datepicker");
 
 let i = 0;
 let s = 0;
@@ -292,6 +293,7 @@ dateValid.addEventListener("change", () => {
 /********FORM IS SUBMITTED IF VALIDATION IS SUCCESSFUL, IF NOT, SUBMIT DEFAULT BEHAVIOUR IS PREVENTED*********/
 form.addEventListener("submit", (e) => {
   i = 0;
+  greenRemove();
   validation();
   if (i == 4) {
     form.submit();
@@ -300,3 +302,10 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
   }
 });
+
+function greenRemove() {
+  cor4.classList.add("hidden");
+  cor3.classList.add("hidden");
+  cor2.classList.add("hidden");
+  cor1.classList.add("hidden");
+}

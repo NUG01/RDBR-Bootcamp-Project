@@ -580,7 +580,7 @@ body {
   border-radius: 6px;
   box-shadow: 0 0 4px #be5c66;
   transition: translate(2rem, -115%) scale(0);
-  transition: all 0.2s ease-out;
+  transition: all 0.18s ease-out;
 }
 .fortool .tooltip::before,
 .fortool .tooltip::after,
