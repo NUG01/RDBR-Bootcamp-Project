@@ -24,6 +24,7 @@ const err1 = document.querySelector(".eror1");
 const err2 = document.querySelector(".eror2");
 const err3 = document.querySelector(".eror3");
 const err4 = document.querySelector(".eror4");
+
 let i = 0;
 let s = 0;
 
@@ -42,7 +43,14 @@ close.forEach((x) => {
     x.parentElement.parentElement.classList.add("scale");
   });
 });
+/***************CALENDAR***************/
 
+$(function () {
+  $(".inpdiv4 #user1").datepicker({
+    format: "dd/mm/yyyy",
+    autoclose: true,
+  });
+});
 /***************WHEN PAGE LOADS, THIS CHECKS IF IT HAS ANYTHING STORED IN SESSION STORAGE,
  * IF TRUE, INPUT FIELDS GET FILLED WITH THE INFORMATION, WHICH GIVES RESISTANCE AGAINST PAGE REFRESH,
  * COUNTER IS FOR TOP NUMBER 1 TO GET REPLACED WITH GREEN CHECK ICON WHEN ALL THE INPUTS ARE FILLED, SO EVEN CHECK
@@ -92,6 +100,18 @@ inputi.forEach((e) => {
       return "date_of_birth";
     }
   }
+  window.addEventListener("click", () => {
+    sessionStorage.setItem("date_of_birth", dateValid.value);
+    if (dateValid.value.trim().match(date)) {
+      num1div.classList.add("greenN");
+      cor4.classList.remove("hidden");
+      err4.classList.remove("grow");
+      err4.classList.add("scale");
+      inpdiv4.classList.remove("inpdiv");
+    } else {
+      cor4.classList.add("hidden");
+    }
+  });
   e.addEventListener("keyup", function () {
     num1div.classList.add("greenN");
     sessionStorage.setItem(keyName(), e.value);
@@ -99,8 +119,14 @@ inputi.forEach((e) => {
 });
 
 inputi.forEach((el) => {
-  el.addEventListener("keydown", () => {
-    el.previousElementSibling.innerHTML = "";
+  el.addEventListener("click", () => {
+    if (el.classList.contains("form-control")) {
+      el.previousElementSibling.innerHTML = "";
+    } else {
+      el.addEventListener("keydown", () => {
+        el.previousElementSibling.innerHTML = "";
+      });
+    }
   });
 });
 

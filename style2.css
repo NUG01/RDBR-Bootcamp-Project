@@ -67,6 +67,7 @@ body {
 .blockQ {
   margin-top: 15rem;
   margin-left: 15rem;
+  border: none;
 }
 .quote {
   font-weight: 800;
@@ -221,15 +222,26 @@ body {
   font-size: 2rem;
   font-family: "Open Sans", sans-serif;
   padding-left: 0.5rem;
+  box-shadow: none;
+  transition: box-shadow 0.2s !important;
+}
+.inputs div input:focus {
+  outline-style: none;
+  box-shadow: 0 0 0 3px #c2a5f9cc;
+  border-bottom: 1px solid #a7a4ac4d;
+}
+.inputs div input:after {
+  border-top: 2px solid red;
 }
 
 .inputs label {
   position: absolute;
   top: 50%;
   transform: translate(5px, -50%);
-  color: #686769;
+  color: #686769 !important;
   pointer-events: none;
   padding-left: 0.5rem;
+  font-weight: 500 !important;
 }
 /*****BUTTON AFTER INPUTS**********/
 .getStarted {
@@ -299,6 +311,10 @@ body {
   justify-content: space-between;
 }
 /***********BUTTONS ENDS HERE***********/
+
+/**************CALENDAR*************/
+
+/*************CALENDAR ENDS HERE*************/
 
 /*************INPUTS AND ITS ERROR MESSAGES**********/
 .margbo {
