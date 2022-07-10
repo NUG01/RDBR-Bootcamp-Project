@@ -404,7 +404,13 @@ body {
   border-bottom: 1.2px solid #a7a4ac4d;
   padding: 1rem 1.2rem;
 }
-
+.pot {
+  transition: text-shadow 0.03s;
+  color: black;
+}
+.pot:hover {
+  text-shadow: 0.9px 0 0 currentColor;
+}
 .option:hover,
 .optionP:hover,
 .optionApi:hover,
