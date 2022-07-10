@@ -309,5 +309,13 @@ function greenAdd() {
   cor4.classList.remove("hidden");
   cor3.classList.remove("hidden");
   cor2.classList.remove("hidden");
-  cor1.classList.remove("hidden");
+  cor1.classList.remove("hidden"); 
+  err1.classList.remove("grow");
+  err1.classList.add("scale");
+  err2.classList.remove("grow");
+  err2.classList.add("scale");
+  err3.classList.remove("grow");
+  err3.classList.add("scale");
+  err4.classList.remove("grow");
+  err4.classList.add("scale");
 }
