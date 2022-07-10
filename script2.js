@@ -225,7 +225,6 @@ inputi.forEach((el) => {
       !cor1.classList.contains("hidden") &&
       !cor2.classList.contains("hidden") &&
       !cor3.classList.contains("hidden") &&
-      !cor4.classList.contains("hidden")
     ) {
       num1.classList.add("hidden");
       greenticks.classList.remove("hidden");
