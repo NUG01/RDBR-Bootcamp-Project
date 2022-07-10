@@ -57,10 +57,11 @@ $(function () {
  * COUNTER IS FOR TOP NUMBER 1 TO GET REPLACED WITH GREEN CHECK ICON WHEN ALL THE INPUTS ARE FILLED, SO EVEN CHECK
  * ICON IS RESISTANT TO REFRESH
  */
-window.onload = function () {cor4.classList.remove("hidden");
-  cor3.classList.remove("hidden");
-  cor2.classList.remove("hidden");
-  cor1.classList.remove("hidden");
+window.onload = function () {
+  cor4.classList.add("hidden");
+  cor3.classList.add("hidden");
+  cor2.classList.add("hidden");
+  cor1.classList.add("hidden");
   s = 0;
   if (sessionStorage.getItem("name")) {
     nameValid.value = sessionStorage.getItem("name");
