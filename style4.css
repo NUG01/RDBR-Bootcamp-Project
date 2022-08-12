@@ -64,3 +64,28 @@ body {
   font-family: "Nunito", sans-serif;
   color: black;
 }
+
+@media (max-width: 55em) {
+  .onboard {
+    font-size: 3.2rem;
+  }
+  .section1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1.3fr;
+  }
+  .section1 {
+    width: 100vw;
+  }
+}
+@media (max-width: 24.5em) {
+  .content1 img {
+    transform: scale(0.9);
+  }
+  .content1 p {
+    font-size: 2.7rem;
+  }
+  .forLogo img,
+  .forLogo svg {
+    transform: translateX(-4rem);
+  }
+}

@@ -28,6 +28,7 @@ body {
 .section1 {
   font-weight: 600;
   font-family: "Nunito";
+  width: 100vw;
 }
 .photo1 {
   display: grid;
@@ -436,4 +437,117 @@ input:-webkit-autofill:active {
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
   display: block;
+}
+@media (max-width: 94.5em) {
+  .bigError {
+    width: 40%;
+  }
+  .section1 {
+    width: 100vw;
+  }
+}
+@media (max-width: 84.5em) {
+  .bigError {
+    width: 45%;
+  }
+  .err2 {
+    padding: 0.8rem 1rem;
+  }
+}
+@media (max-width: 74em) {
+  .bigError {
+    width: 52%;
+  }
+  .err2 {
+    padding: 0.6rem 0.8rem;
+  }
+}
+@media (max-width: 62.5em) {
+  .bigError {
+    width: 62.5%;
+  }
+  .err2 {
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+@media (max-width: 81.25em) {
+  .blockQ {
+    margin-left: 3rem;
+    margin-top: 15rem;
+  }
+}
+@media (max-width: 66.25em) {
+  .quote {
+    font-size: 2.3rem;
+  }
+}
+@media (max-width: 58.5em) {
+  .blockQ {
+    margin-left: 3rem;
+    margin-top: 18rem;
+  }
+  .quote {
+    font-size: 2rem;
+  }
+  .lasker {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 52.5em) {
+  .section1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .blockQ {
+    margin-left: 2rem;
+    margin-top: 30rem;
+    transform: translate(0, -27rem);
+  }
+}
+@media (max-width: 50.5em) {
+  .bigError {
+    width: 42%;
+    top: 2%;
+  }
+  .err2 {
+    padding: 1rem 1.2rem;
+  }
+}
+@media (max-width: 42em) {
+  .bigError {
+    width: 50%;
+    top: 0;
+  }
+  .err2 {
+    padding: 0.6rem 0.8rem;
+  }
+}
+@media (max-width: 35em) {
+  .bigError {
+    width: 55%;
+  }
+  .err2 {
+    padding: 0.5rem 0.7rem;
+  }
+}
+@media (max-width: 31em) {
+  .bigError {
+    width: 60%;
+  }
+  .err2 {
+    padding: 0.5rem 0.7rem;
+  }
+}
+@media (max-width: 27.75em) {
+  .bigError {
+    width: 80%;
+    right: -12%;
+  }
+  .err2 {
+    padding: 0.3rem 0.4rem;
+  }
+  .path {
+    transform: translateX(-10%);
+  }
 }
