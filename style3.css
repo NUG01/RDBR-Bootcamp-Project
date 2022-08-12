@@ -29,6 +29,7 @@ body {
 .section1 {
   font-weight: 600;
   font-family: "Nunito";
+  width: 100vw;
 }
 .photo1 {
   display: grid;
@@ -410,7 +411,13 @@ body {
   border-bottom: 1.2px solid #a7a4ac4d;
   padding: 1rem 1.2rem;
 }
-
+.pot {
+  transition: text-shadow 0.03s;
+  color: black;
+}
+.pot:hover {
+  text-shadow: 0.9px 0 0 currentColor;
+}
 .option:hover,
 .optionP:hover,
 .optionApi:hover,
@@ -628,3 +635,145 @@ body {
   transform: translate(3rem, -48%);
   box-shadow: none;
 }
+@media (max-width: 98.2em) {
+  .blockQ {
+    margin-left: 3rem;
+  }
+  .section1 {
+    width: 100vw;
+  }
+}
+@media (max-width: 91em) {
+  .selectBox {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+  .selected.active .options1 {
+    top: 45%;
+    width: 70%;
+  }
+  .selected.active .options2 {
+    top: 112%;
+    left: 0;
+    width: 70%;
+  }
+  .fortool .tooltip.respo::before,
+  .fortool .tooltip.repso::after {
+    position: absolute;
+    content: "";
+    top: 74%;
+    transform: translate(4.2rem, -100%) scale(1);
+  }
+  .fortool .tooltip.respo::after {
+    transform: translate(2rem, -213%) scale(1);
+    top: 100%;
+  }
+}
+@media (max-width: 86.5em) {
+  .quote {
+    font-size: 2.3rem;
+  }
+  .lasker {
+    font-size: 2.1rem;
+  }
+}
+@media (max-width: 76.5em) {
+  .quote {
+    font-size: 2.1rem;
+  }
+  .lasker {
+    font-size: 1.8rem;
+  }
+  .blockQ {
+    margin-left: 1.8rem;
+  }
+}
+@media (max-width: 59em) {
+  .section1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .blockQ {
+    margin-left: 2rem;
+    margin-top: 30rem;
+    transform: translate(0, -27rem);
+  }
+}
+@media (max-width: 43em) {
+  .selected.active .options1 {
+    width: 100%;
+  }
+  .selected.active .options2 {
+    width: 100%;
+  }
+}
+@media (max-width: 35.2em) {
+  .quote {
+    font-size: 1.8rem;
+  }
+  .lasker {
+    font-size: 1.6rem;
+  }
+  .cont1 p {
+    padding-right: 3.2rem;
+    padding-left: 3.2rem;
+  }
+  .cont1 {
+    padding-left: 0;
+  }
+}
+@media (max-width: 31em) {
+  .quote {
+    font-size: 1.7rem;
+  }
+  .lasker {
+    font-size: 1.6rem;
+  }
+  .radioP {
+    width: 120%;
+  }
+  .cont1 p {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 28.2em) {
+  .cont1 p {
+    font-size: 1.6rem;
+    padding-left: 1.8rem;
+  }
+}
+
+/* @media (max-width: 81.25em) {
+  .blockQ {
+    margin-left: 3rem;
+    margin-top: 15rem;
+  }
+}
+@media (max-width: 66.25em) {
+  .quote {
+    font-size: 2.3rem;
+  }
+}
+@media (max-width: 58.5em) {
+  .blockQ {
+    margin-left: 3rem;
+    margin-top: 18rem;
+  }
+  .quote {
+    font-size: 2rem;
+  }
+  .lasker {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 52.5em) {
+  .section1 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .blockQ {
+    margin-left: 2rem;
+    margin-top: 30rem;
+    transform: translate(0, -27rem);
+  }
+} */

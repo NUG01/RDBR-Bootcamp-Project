@@ -25,6 +25,10 @@ const err2 = document.querySelector(".eror2");
 const err3 = document.querySelector(".eror3");
 const err4 = document.querySelector(".eror4");
 const picker = document.querySelector(".datepicker");
+const cor1 = document.querySelector(".correct1");
+const cor2 = document.querySelector(".correct2");
+const cor3 = document.querySelector(".correct3");
+const cor4 = document.querySelector(".correct4");
 
 let i = 0;
 let s = 0;
@@ -179,10 +183,6 @@ function validation() {
 }
 
 /********************TO DISPLAY AND HIDE ERRORS AND CORRECT ANSWER CHECKS FOR EACH INPUT*/
-const cor1 = document.querySelector(".correct1");
-const cor2 = document.querySelector(".correct2");
-const cor3 = document.querySelector(".correct3");
-const cor4 = document.querySelector(".correct4");
 
 inputi.forEach((el) => {
   el.addEventListener("input", (e) => {
@@ -224,7 +224,8 @@ inputi.forEach((el) => {
     if (
       !cor1.classList.contains("hidden") &&
       !cor2.classList.contains("hidden") &&
-      !cor3.classList.contains("hidden") &&
+      !cor3.classList.contains("hidden")
+
     ) {
       num1.classList.add("hidden");
       greenticks.classList.remove("hidden");
@@ -234,7 +235,11 @@ inputi.forEach((el) => {
     }
   });
 });
-
+function dateClicked() {
+  dateValid.addEventListener("change", () => {
+    return true;
+  });
+}
 /*******************ADDS AND REMOVES INPUTS BACKGROUND COLOR AND FONT COLOR ON FOCUS CHANGE BASED ON INPUT VALIDITY****/
 
 nameValid.addEventListener("change", () => {
@@ -312,7 +317,9 @@ function greenAdd() {
   cor4.classList.remove("hidden");
   cor3.classList.remove("hidden");
   cor2.classList.remove("hidden");
-  cor1.classList.remove("hidden"); 
+
+  cor1.classList.remove("hidden");
+
   err1.classList.remove("grow");
   err1.classList.add("scale");
   err2.classList.remove("grow");
