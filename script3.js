@@ -354,6 +354,7 @@ function post() {
         storage[key] = "normal";
       }
     }
+
   });
   /**************BELOW CODE TRANSLATING STRING TRUE AND FALSE INTO BOOLEAN VALUES SINCE SESSION STORAGE
    * CANT STORE BOOLEANS, SAME FOR NUMBER*****************/
